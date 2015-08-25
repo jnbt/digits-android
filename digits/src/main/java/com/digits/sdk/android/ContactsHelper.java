@@ -85,29 +85,28 @@ class ContactsHelper {
             final String mimeType = cursor.getString(mimeTypeColumnIndex);
             final ContentValues cv = new ContentValues();
             cv.put(ContactsContract.Data.MIMETYPE, mimeType);
-            switch (mimeType) {
-                case Phone.CONTENT_ITEM_TYPE:
+            if(mimeType ==Phone.CONTENT_ITEM_TYPE) {
                     DatabaseUtils.cursorIntToContentValuesIfPresent(cursor, cv, Phone.TYPE);
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv, Phone.LABEL);
                     DatabaseUtils.cursorIntToContentValuesIfPresent(cursor, cv, Phone.IS_PRIMARY);
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv, Phone.NUMBER);
-                    break;
-                case Email.CONTENT_ITEM_TYPE:
+            }
+            else if(mimeType == Email.CONTENT_ITEM_TYPE){
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv, Email.DATA);
                     DatabaseUtils.cursorIntToContentValuesIfPresent(cursor, cv, Email.TYPE);
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv, Email.LABEL);
                     DatabaseUtils.cursorIntToContentValuesIfPresent(cursor, cv, Email.IS_PRIMARY);
-                    break;
-                case StructuredName.CONTENT_ITEM_TYPE:
+            }
+            else if(mimeType == Email.CONTENT_ITEM_TYPE){
+                    // was break
+            }
+            else if(mimeType == StructuredName.CONTENT_ITEM_TYPE){
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv,
                             StructuredName.DISPLAY_NAME);
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv,
                             StructuredName.GIVEN_NAME);
                     DatabaseUtils.cursorStringToContentValuesIfPresent(cursor, cv,
                             StructuredName.FAMILY_NAME);
-                    break;
-                default:
-                    continue;
             }
             // Aggregate contacts based on their lookup key.
             final String lookupKey = cursor.getString(lookupKeyColumnIndex);
