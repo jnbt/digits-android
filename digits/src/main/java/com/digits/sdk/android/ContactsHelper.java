@@ -62,7 +62,7 @@ class ContactsHelper {
 
     public Cursor getContactsCursor() {
         // Get unique values from allProjectionColumns
-        final HashSet<String> tempSet = new HashSet<>(Arrays.asList(allProjectionColumns));
+        final HashSet<String> tempSet = new HashSet<String>(Arrays.asList(allProjectionColumns));
         final String[] projectionColumns = tempSet.toArray(new String[tempSet.size()]);
 
         final Uri uri = ContactsContract.Data.CONTENT_URI.buildUpon()
@@ -80,7 +80,7 @@ class ContactsHelper {
         final int mimeTypeColumnIndex = cursor.getColumnIndex(ContactsContract.Data.MIMETYPE);
         final int lookupKeyColumnIndex = cursor.getColumnIndex(ContactsContract.Contacts
                 .LOOKUP_KEY);
-        final Map<String, List<ContentValues>> mapContactsData = new HashMap<>();
+        final Map<String, List<ContentValues>> mapContactsData = new HashMap<String, List<ContentValues>>();
         while (cursor.moveToNext()) {
             final String mimeType = cursor.getString(mimeTypeColumnIndex);
             final ContentValues cv = new ContentValues();
@@ -113,7 +113,7 @@ class ContactsHelper {
             final String lookupKey = cursor.getString(lookupKeyColumnIndex);
             List<ContentValues> contactDetails = mapContactsData.get(lookupKey);
             if (contactDetails == null) {
-                contactDetails = new ArrayList<>();
+                contactDetails = new ArrayList<ContentValues>();
                 mapContactsData.put(lookupKey, contactDetails);
             }
             contactDetails.add(cv);
@@ -123,8 +123,8 @@ class ContactsHelper {
     }
 
     private List<String> processContactsMap(Map<String, List<ContentValues>> mapContactsData) {
-        final List<String> vCards = new ArrayList<>();
-        final Map<String, List<ContentValues>> contactMimeTypeMap = new HashMap<>();
+        final List<String> vCards = new ArrayList<String>();
+        final Map<String, List<ContentValues>> contactMimeTypeMap = new HashMap<String, List<ContentValues>>();
         final VCardBuilder builder = new VCardBuilder(VCardConfig.VCARD_TYPE_V30_GENERIC,
                 VCardConfig.DEFAULT_EXPORT_CHARSET);
         for (String key : mapContactsData.keySet()) {
@@ -140,7 +140,7 @@ class ContactsHelper {
                 }
                 List<ContentValues> group = contactMimeTypeMap.get(mimeType);
                 if (group == null) {
-                    group = new ArrayList<>();
+                    group = new ArrayList<ContentValues>();
                     contactMimeTypeMap.put(mimeType, group);
                 }
                 group.add(cv);

@@ -388,7 +388,7 @@ public class VCardConfig {
     private static final Set<Integer> sJapaneseMobileTypeSet;
 
     static {
-        sVCardTypeMap = new HashMap<>();
+        sVCardTypeMap = new HashMap<String, Integer>();
         sVCardTypeMap.put(VCARD_TYPE_V21_GENERIC_STR, VCARD_TYPE_V21_GENERIC);
         sVCardTypeMap.put(VCARD_TYPE_V30_GENERIC_STR, VCARD_TYPE_V30_GENERIC);
         sVCardTypeMap.put(VCARD_TYPE_V21_EUROPE_STR, VCARD_TYPE_V21_EUROPE);
@@ -398,7 +398,7 @@ public class VCardConfig {
         sVCardTypeMap.put(VCARD_TYPE_V21_JAPANESE_MOBILE_STR, VCARD_TYPE_V21_JAPANESE_MOBILE);
         sVCardTypeMap.put(VCARD_TYPE_DOCOMO_STR, VCARD_TYPE_DOCOMO);
 
-        sJapaneseMobileTypeSet = new HashSet<>();
+        sJapaneseMobileTypeSet = new HashSet<Integer>();
         sJapaneseMobileTypeSet.add(VCARD_TYPE_V21_JAPANESE);
         sJapaneseMobileTypeSet.add(VCARD_TYPE_V30_JAPANESE);
         sJapaneseMobileTypeSet.add(VCARD_TYPE_V21_JAPANESE_MOBILE);

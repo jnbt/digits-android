@@ -54,7 +54,7 @@ class DigitsApiClient {
             SSLSocketFactory sslFactory, ExecutorService executorService,
             DigitsUserAgent userAgent) {
         this.session = session;
-        this.services = new ConcurrentHashMap<>();
+        this.services = new ConcurrentHashMap<Class, Object>();
         this.restAdapter = new RestAdapter.Builder()
                 .setEndpoint(new DigitsApi().getBaseHostUrl())
                 .setRequestInterceptor(new DigitsRequestInterceptor(userAgent))

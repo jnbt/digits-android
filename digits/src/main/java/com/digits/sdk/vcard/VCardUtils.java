@@ -78,8 +78,8 @@ public class VCardUtils {
     private static final Set<String> sMobilePhoneLabelSet;
 
     static {
-        sKnownPhoneTypesMap_ItoS = new SparseArray<>();
-        sKnownPhoneTypeMap_StoI = new HashMap<>();
+        sKnownPhoneTypesMap_ItoS = new SparseArray<String>();
+        sKnownPhoneTypeMap_StoI = new HashMap<String, Integer>();
 
         sKnownPhoneTypesMap_ItoS.put(Phone.TYPE_CAR, VCardConstants.PARAM_TYPE_CAR);
         sKnownPhoneTypeMap_StoI.put(VCardConstants.PARAM_TYPE_CAR, Phone.TYPE_CAR);
@@ -105,13 +105,13 @@ public class VCardUtils {
         // OTHER (default in Android) should correspond to VOICE (default in vCard).
         sKnownPhoneTypeMap_StoI.put(VCardConstants.PARAM_TYPE_VOICE, Phone.TYPE_OTHER);
 
-        sPhoneTypesUnknownToContactsSet = new HashSet<>();
+        sPhoneTypesUnknownToContactsSet = new HashSet<String>();
         sPhoneTypesUnknownToContactsSet.add(VCardConstants.PARAM_TYPE_MODEM);
         sPhoneTypesUnknownToContactsSet.add(VCardConstants.PARAM_TYPE_MSG);
         sPhoneTypesUnknownToContactsSet.add(VCardConstants.PARAM_TYPE_BBS);
         sPhoneTypesUnknownToContactsSet.add(VCardConstants.PARAM_TYPE_VIDEO);
 
-        sKnownImPropNameMap_ItoS = new SparseArray<>();
+        sKnownImPropNameMap_ItoS = new SparseArray<String>();
         sKnownImPropNameMap_ItoS.put(Im.PROTOCOL_AIM, VCardConstants.PROPERTY_X_AIM);
         sKnownImPropNameMap_ItoS.put(Im.PROTOCOL_MSN, VCardConstants.PROPERTY_X_MSN);
         sKnownImPropNameMap_ItoS.put(Im.PROTOCOL_YAHOO, VCardConstants.PROPERTY_X_YAHOO);
@@ -127,7 +127,7 @@ public class VCardUtils {
         // \u643A\u5E2F = Full-width Hiragana "Keitai" (mobile phone)
         // \u30B1\u30A4\u30BF\u30A4 = Full-width Katakana "Keitai" (mobile phone)
         // \uFF79\uFF72\uFF80\uFF72 = Half-width Katakana "Keitai" (mobile phone)
-        sMobilePhoneLabelSet = new HashSet<>(Arrays.asList(
+        sMobilePhoneLabelSet = new HashSet<String>(Arrays.asList(
                 "MOBILE", "\u643A\u5E2F\u96FB\u8A71", "\u643A\u5E2F", "\u30B1\u30A4\u30BF\u30A4",
                 "\uFF79\uFF72\uFF80\uFF72"));
     }
@@ -289,7 +289,7 @@ public class VCardUtils {
     }
 
     private static final Set<Character> sUnAcceptableAsciiInV21WordSet =
-        new HashSet<>(Arrays.asList('[', ']', '=', ':', '.', ',', ' '));
+        new HashSet<Character>(Arrays.asList('[', ']', '=', ':', '.', ',', ' '));
 
     /**
      * <p>

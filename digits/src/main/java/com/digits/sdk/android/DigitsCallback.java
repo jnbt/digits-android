@@ -32,7 +32,7 @@ public abstract class DigitsCallback<T> extends Callback<T> {
 
     DigitsCallback(Context context, DigitsController controller) {
 
-        this.context = new WeakReference<>(context);
+        this.context = new WeakReference<Context>(context);
         this.controller = controller;
     }
 

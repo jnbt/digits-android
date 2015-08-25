@@ -30,8 +30,8 @@ import java.util.Locale;
  * Array adapter used to display a list of countries with section indies.
  */
 class CountryListAdapter extends ArrayAdapter<CountryInfo> implements SectionIndexer {
-    final private HashMap<String, Integer> alphaIndex = new LinkedHashMap<>();
-    final private HashMap<String, Integer> countryPosition = new LinkedHashMap<>();
+    final private HashMap<String, Integer> alphaIndex = new LinkedHashMap<String, Integer>();
+    final private HashMap<String, Integer> countryPosition = new LinkedHashMap<String, Integer>();
     private String[] sections;
 
     public CountryListAdapter(Context context) {

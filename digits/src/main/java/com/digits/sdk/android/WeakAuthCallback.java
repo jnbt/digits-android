@@ -23,7 +23,7 @@ class WeakAuthCallback implements AuthCallback {
     private final WeakReference<AuthCallback> callbackWeakReference;
 
     public WeakAuthCallback(AuthCallback callback) {
-        this.callbackWeakReference = new WeakReference<>(callback);
+        this.callbackWeakReference = new WeakReference<AuthCallback>(callback);
     }
 
     @Override

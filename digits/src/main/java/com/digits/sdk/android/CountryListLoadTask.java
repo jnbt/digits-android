@@ -35,7 +35,7 @@ class CountryListLoadTask extends AsyncTask<Void, Void, List<CountryInfo>> {
 
     @Override
     protected List<CountryInfo> doInBackground(Void... params) {
-        final List<CountryInfo> countryInfoList = new ArrayList<>(MAX_COUNTRIES);
+        final List<CountryInfo> countryInfoList = new ArrayList<CountryInfo>(MAX_COUNTRIES);
         countryInfoList.add(new CountryInfo(new Locale("", "AF").getDisplayCountry(), 93));
         countryInfoList.add(new CountryInfo(new Locale("", "AX").getDisplayCountry(), 358));
         countryInfoList.add(new CountryInfo(new Locale("", "AL").getDisplayCountry(), 355));

@@ -163,7 +163,7 @@ public class Digits extends Kit<Void> {
         final MigrationHelper migrationHelper = new MigrationHelper();
         migrationHelper.migrateSessionStore(getContext(), getIdentifier(),
                 getIdentifier() + ":" + SESSION_PREF_FILE_NAME + ".xml");
-        sessionManager = new PersistedSessionManager<>(new PreferenceStoreImpl(getContext(),
+        sessionManager = new PersistedSessionManager<DigitsSession>(new PreferenceStoreImpl(getContext(),
                 SESSION_PREF_FILE_NAME), new DigitsSession.Serializer(), PREF_KEY_ACTIVE_SESSION,
                 PREF_KEY_SESSION);
         digitsSessionVerifier = new DigitsSessionVerifier();
@@ -177,7 +177,7 @@ public class Digits extends Kit<Void> {
         createDigitsClient();
         createContactsClient();
         scribeService = new DigitsScribeServiceImp(setUpScribing());
-        userSessionMonitor = new SessionMonitor<>(getSessionManager(), getExecutorService(),
+        userSessionMonitor = new SessionMonitor<DigitsSession>(getSessionManager(), getExecutorService(),
                 digitsSessionVerifier);
         userSessionMonitor.triggerVerificationIfNecessary();
         // Monitor activity lifecycle after sessions have been restored. Otherwise we would not
@@ -240,7 +240,7 @@ public class Digits extends Kit<Void> {
     }
 
     private DefaultScribeClient setUpScribing() {
-        final List<SessionManager<? extends Session>> sessionManagers = new ArrayList<>();
+        final List<SessionManager<? extends Session>> sessionManagers = new ArrayList<SessionManager<? extends Session>>();
         sessionManagers.add(sessionManager);
         return new DefaultScribeClient(this, KIT_SCRIBE_NAME,
                 sessionManagers, getIdManager());

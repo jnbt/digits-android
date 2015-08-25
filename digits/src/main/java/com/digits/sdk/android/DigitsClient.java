@@ -78,7 +78,7 @@ public class DigitsClient {
     }
 
     protected DigitsAuthRequestQueue createAuthRequestQueue(SessionManager sessionManager) {
-        final List<SessionManager<? extends Session>> sessionManagers = new ArrayList<>(1);
+        final List<SessionManager<? extends Session>> sessionManagers = new ArrayList<SessionManager<? extends Session>>(1);
         sessionManagers.add(sessionManager);
         final DigitsGuestSessionProvider sessionProvider =
                 new DigitsGuestSessionProvider(sessionManager, sessionManagers);

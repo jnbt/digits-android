@@ -24,7 +24,7 @@ import java.util.List;
 
 class Vcards {
     @SerializedName("vcards")
-    final List<String> vcards = new ArrayList<>();
+    final List<String> vcards = new ArrayList<String>();
 
     Vcards(List<String> vCards) {
         this.vcards.addAll(vCards);

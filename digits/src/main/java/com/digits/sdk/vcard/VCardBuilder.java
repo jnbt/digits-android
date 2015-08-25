@@ -63,7 +63,7 @@ public class VCardBuilder {
     //
     // e.g. BLOB is not what we can handle here now.
     private static final Set<String> sAllowedAndroidPropertySet =
-            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+            Collections.unmodifiableSet(new HashSet<String>(Arrays.asList(
                     Nickname.CONTENT_ITEM_TYPE, Event.CONTENT_ITEM_TYPE,
                     Relation.CONTENT_ITEM_TYPE)));
 
@@ -741,7 +741,7 @@ public class VCardBuilder {
             VCardPhoneNumberTranslationCallback translationCallback) {
         boolean phoneLineExists = false;
         if (contentValuesList != null) {
-            Set<String> phoneSet = new HashSet<>();
+            Set<String> phoneSet = new HashSet<String>();
             for (ContentValues contentValues : contentValuesList) {
                 final Integer typeAsObject = contentValues.getAsInteger(Phone.TYPE);
                 final String label = contentValues.getAsString(Phone.LABEL);
@@ -862,7 +862,7 @@ public class VCardBuilder {
      * </p>
      */
     private List<String> splitPhoneNumbers(final String phoneNumber) {
-        final List<String> phoneList = new ArrayList<>();
+        final List<String> phoneList = new ArrayList<String>();
 
         StringBuilder builder = new StringBuilder();
         final int length = phoneNumber.length();
@@ -884,7 +884,7 @@ public class VCardBuilder {
     public VCardBuilder appendEmails(final List<ContentValues> contentValuesList) {
         boolean emailAddressExists = false;
         if (contentValuesList != null) {
-            final Set<String> addressSet = new HashSet<>();
+            final Set<String> addressSet = new HashSet<String>();
             for (ContentValues contentValues : contentValuesList) {
                 String emailAddress = contentValues.getAsString(Email.DATA);
                 if (emailAddress != null) {
@@ -953,7 +953,7 @@ public class VCardBuilder {
             }
         }
 
-        final List<String> parameterList = new ArrayList<>();
+        final List<String> parameterList = new ArrayList<String>();
         if (isPrimary) {
             parameterList.add(VCardConstants.PARAM_TYPE_PREF);
         }
@@ -977,7 +977,7 @@ public class VCardBuilder {
             type = typeAsInteger;
         }
 
-        ArrayList<String> parameterList = new ArrayList<>();
+        ArrayList<String> parameterList = new ArrayList<String>();
         switch (type) {
             case Phone.TYPE_HOME: {
                 parameterList.addAll(

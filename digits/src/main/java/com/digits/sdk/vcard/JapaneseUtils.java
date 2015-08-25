@@ -25,7 +25,7 @@ import java.util.Map;
 @SuppressWarnings("PMD")
 /* package */ class JapaneseUtils {
     static private final Map<Character, String> sHalfWidthMap =
-        new HashMap<>();
+        new HashMap<Character, String>();
 
     static {
         sHalfWidthMap.put('\u3001', "\uFF64");

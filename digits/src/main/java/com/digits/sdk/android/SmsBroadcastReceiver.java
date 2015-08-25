@@ -33,7 +33,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     final WeakReference<EditText> editTextWeakReference;
 
     SmsBroadcastReceiver(EditText editText) {
-        editTextWeakReference = new WeakReference<>(editText);
+        editTextWeakReference = new WeakReference<EditText>(editText);
     }
 
     @Override
