@@ -70,7 +70,7 @@ public class LoginCodeControllerTests extends DigitsControllerTests<LoginCodeCon
         final ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
         final DigitsCallback<DigitsSessionResponse> callback = executeRequest();
         final Result<DigitsSessionResponse> response =
-                new Result<>(new DigitsSessionResponse(), null);
+                new Result<DigitsSessionResponse>(new DigitsSessionResponse(), null);
         callback.success(response);
         verify(context).startActivityForResult(intentArgumentCaptor.capture(), eq(DigitsActivity
                 .REQUEST_CODE));

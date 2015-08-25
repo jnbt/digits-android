@@ -68,7 +68,7 @@ public class DigitsOAuthSigningTest {
 
     @Test
     public void testGetOAuthEchoHeadersForVerifyCredentials_withPostParams() throws Exception {
-        final HashMap<String, String> optParams = new HashMap<>();
+        final HashMap<String, String> optParams = new HashMap<String, String>();
         optParams.put(SESSION_KEY, SESSION_ID);
         oAuthSigning.getOAuthEchoHeadersForVerifyCredentials(optParams);
 

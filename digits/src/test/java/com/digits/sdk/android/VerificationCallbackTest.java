@@ -52,12 +52,12 @@ public class VerificationCallbackTest {
         sessionListener = mock(SessionListener.class);
         sessionListener2 = mock(SessionListener.class);
         sessionManager = mock(SessionManager.class);
-        sessionListenerMap = new ConcurrentHashMap<>();
+        sessionListenerMap = new ConcurrentHashMap<SessionListener, Boolean>();
         verificationCallback = new DigitsSessionVerifier.VerificationCallback
                 (sessionListenerMap, sessionManager);
         verificationCallback.addSessionListener(sessionListener);
-        result = new Result<>(TestConstants.getVerifyAccountResponse(), null);
-        resultInvalidData = new Result<>(TestConstants.getInvalidVerifyAccountResponse(), null);
+        result = new Result<VerifyAccountResponse>(TestConstants.getVerifyAccountResponse(), null);
+        resultInvalidData = new Result<VerifyAccountResponse>(TestConstants.getInvalidVerifyAccountResponse(), null);
     }
 
     @Test

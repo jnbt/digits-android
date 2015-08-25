@@ -91,7 +91,7 @@ public class PhoneNumberControllerTests extends DigitsControllerTests<PhoneNumbe
         controller.handleError(context, new CouldNotAuthenticateException(ERROR_MESSAGE));
         verify(digitsClient).registerDevice(eq(PHONE), callbackCaptor.capture());
         final Callback<DeviceRegistrationResponse> callback = callbackCaptor.getValue();
-        final Result<DeviceRegistrationResponse> deviceResponse = new Result<>(data, null);
+        final Result<DeviceRegistrationResponse> deviceResponse = new Result<DeviceRegistrationResponse>(data, null);
         callback.success(deviceResponse);
         verify(context).startActivityForResult(intentCaptor.capture(),
                 eq(DigitsActivity.REQUEST_CODE));

@@ -39,7 +39,7 @@ public class DigitsTest extends DigitsAndroidTestCase {
         try {
             Fabric.with(getContext(), new TwitterCore(new TwitterAuthConfig("", "")), new Digits());
             final ParallelCallableExecutor<DigitsClient> executor =
-                    new ParallelCallableExecutor<>(
+                    new ParallelCallableExecutor<DigitsClient>(
                             new DigitsClientCallable(),
                             new DigitsClientCallable());
 

@@ -58,7 +58,7 @@ public class DigitsGuestSessionProviderTests {
         sessionManager = mock(SessionManager.class);
         sessionCallback = mock(Callback.class);
 
-        sessionManagers = new ArrayList<>(1);
+        sessionManagers = new ArrayList<SessionManager<? extends Session>>(1);
         sessionManagers.add(sessionManager);
     }
 

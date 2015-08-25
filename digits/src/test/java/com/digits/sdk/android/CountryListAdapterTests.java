@@ -35,7 +35,7 @@ public class CountryListAdapterTests {
 
     @Before
     public void setUp() throws Exception {
-        final ArrayList<CountryInfo> countries = new ArrayList<>();
+        final ArrayList<CountryInfo> countries = new ArrayList<CountryInfo>();
         countries.add(new CountryInfo("Germany", 1));
         countries.add(new CountryInfo("Saoma", 2));
         countries.add(new CountryInfo("spain", 3));

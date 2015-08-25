@@ -53,7 +53,7 @@ public class VCardBuilderTest {
 
     @Test
     public void testVCardNameFieldFromDisplayName() {
-        final ArrayList<ContentValues> contentList = new ArrayList<>();
+        final ArrayList<ContentValues> contentList = new ArrayList<ContentValues>();
 
         final ContentValues values = new ContentValues();
         values.put(StructuredName.DISPLAY_NAME, "ने");
@@ -80,7 +80,7 @@ public class VCardBuilderTest {
         final VCardBuilder builder = new VCardBuilder(VCardConfig.VCARD_TYPE_V30_GENERIC,
                 VCardConfig.DEFAULT_EXPORT_CHARSET);
         final ContentValues cv = new ContentValues();
-        final List<ContentValues> group = new ArrayList<>();
+        final List<ContentValues> group = new ArrayList<ContentValues>();
 
         cv.put(ContactsContract.Data.MIMETYPE, Email.CONTENT_ITEM_TYPE);
         cv.put(Email.IS_PRIMARY, 0);
@@ -101,7 +101,7 @@ public class VCardBuilderTest {
         final VCardBuilder builder = new VCardBuilder(VCardConfig.VCARD_TYPE_V30_GENERIC,
                 VCardConfig.DEFAULT_EXPORT_CHARSET);
         final ContentValues cv = new ContentValues();
-        final List<ContentValues> group = new ArrayList<>();
+        final List<ContentValues> group = new ArrayList<ContentValues>();
 
         cv.put(ContactsContract.Data.MIMETYPE, Email.CONTENT_ITEM_TYPE);
         cv.put(Email.DATA, "support@digits.com");
@@ -121,7 +121,7 @@ public class VCardBuilderTest {
         final VCardBuilder builder = new VCardBuilder(VCardConfig.VCARD_TYPE_V30_GENERIC,
                 VCardConfig.DEFAULT_EXPORT_CHARSET);
         final ContentValues cv = new ContentValues();
-        final List<ContentValues> group = new ArrayList<>();
+        final List<ContentValues> group = new ArrayList<ContentValues>();
 
         cv.put(ContactsContract.Data.MIMETYPE, Phone.CONTENT_ITEM_TYPE);
         cv.put(Email.IS_PRIMARY, 0);
@@ -139,7 +139,7 @@ public class VCardBuilderTest {
         final VCardBuilder builder = new VCardBuilder(VCardConfig.VCARD_TYPE_V30_GENERIC,
                 VCardConfig.DEFAULT_EXPORT_CHARSET);
         final ContentValues cv = new ContentValues();
-        final List<ContentValues> group = new ArrayList<>();
+        final List<ContentValues> group = new ArrayList<ContentValues>();
 
         cv.put(ContactsContract.Data.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE);
         cv.put(Email.DATA1, "Spruce Grouse");

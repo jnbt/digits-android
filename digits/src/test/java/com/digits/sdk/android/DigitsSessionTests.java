@@ -45,7 +45,7 @@ public class DigitsSessionTests {
 
     @Test
     public void testCreate_user() throws Exception {
-        final ArrayList<Header> headers = new ArrayList<>();
+        final ArrayList<Header> headers = new ArrayList<Header>();
         headers.add(new Header(ANY_HEADER, ANY_DATA));
         headers.add(new Header(DigitsSession.TOKEN_HEADER, TestConstants.TOKEN));
         headers.add(new Header(DigitsSession.SECRET_HEADER, TestConstants.SECRET));
@@ -54,7 +54,7 @@ public class DigitsSessionTests {
                 "", headers, null);
         final DigitsUser user = new DigitsUser(TestConstants.USER_ID,
                 DigitsSession.DEFAULT_PHONE_NUMBER);
-        final DigitsSession session = DigitsSession.create(new Result<>(user, response),
+        final DigitsSession session = DigitsSession.create(new Result<DigitsUser>(user, response),
                 TestConstants.PHONE);
         final DigitsSession newSession = new DigitsSession(new TwitterAuthToken(TestConstants.TOKEN,
                 TestConstants.SECRET),
@@ -129,7 +129,7 @@ public class DigitsSessionTests {
     @Test
     public void testCreate_nullResultResponse() throws Exception {
         try {
-            DigitsSession.create(new Result<>(new DigitsUser(TestConstants.USER_ID,
+            DigitsSession.create(new Result<DigitsUser>(new DigitsUser(TestConstants.USER_ID,
                     DigitsSession.DEFAULT_PHONE_NUMBER), null), TestConstants.PHONE);
             fail();
         } catch (NullPointerException ex) {

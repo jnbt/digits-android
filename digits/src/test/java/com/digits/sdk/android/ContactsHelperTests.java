@@ -84,7 +84,7 @@ public class ContactsHelperTests {
     }
 
     static ArrayList<String> createCardList() {
-        final ArrayList<String> vCards = new ArrayList<>();
+        final ArrayList<String> vCards = new ArrayList<String>();
         vCards.add(SAMPLE_CARD);
         return vCards;
     }

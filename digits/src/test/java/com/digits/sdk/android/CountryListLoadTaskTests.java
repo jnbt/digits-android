@@ -37,7 +37,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
 public class CountryListLoadTaskTests {
-    private static final ArrayList<CountryInfo> COUNTRY_LIST = new ArrayList<>();
+    private static final ArrayList<CountryInfo> COUNTRY_LIST = new ArrayList<CountryInfo>();
 
     static {
         COUNTRY_LIST.add(new CountryInfo(new Locale("", "AF").getDisplayCountry(), 93));
