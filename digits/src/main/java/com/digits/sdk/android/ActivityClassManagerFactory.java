@@ -59,7 +59,7 @@ class ActivityClassManagerFactory {
             styleableTheme = (int[]) field.get(field.getType());
 
             field = clazz.getField("Theme_windowActionBar");
-            styleableThemeWindowActionBar = (int) field.get(field.getType());
+            styleableThemeWindowActionBar = ((Integer) field.get(field.getType())).intValue();
         }
     }
 }
